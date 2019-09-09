@@ -18,6 +18,11 @@ public static class LinqPadMockExt
 
 void Main()// used for testing extensions and showing some use cases
 {
+@"Vulnerabilities
+make-ca-1.4
+CrackLib-2.9.7
+cryptsetup-2.0.6".AsMarkdownList().Dump();
+
 	var Expected = "123456";
 	var actuals = new[] { "124356", "12", "A", "aasdfasfdadfs", "456", "123456", "1233456", "123456789" };
 	actuals.Select(a => new
@@ -414,8 +419,8 @@ public static class StringExtensions
 	public static string AsMarkdownList(this IEnumerable<string> lines, Int32? startNumerate = 1)
 	{
 		var listLines = startNumerate.HasValue
-			? lines.Select((s, i) => $" - [ ] {i+startNumerate.Value}. {s}")
-			: lines.Select(s => $"- [ ] {s}");
+			? lines.Select((s, i) => $" - [ ] {i+startNumerate.Value}. {s.Trim()}")
+			: lines.Select(s => $"- [ ] {s.Trim()}");
 		return String.Join("\n", listLines);
 	}
 	
