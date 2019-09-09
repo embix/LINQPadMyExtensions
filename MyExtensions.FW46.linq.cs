@@ -409,14 +409,14 @@ public static class StringExtensions
 		}
 	}
 	
-	public static string AsMarkdownList(this string lines, string[] separators = null)
+	public static string AsMarkdownList(this string lines, int? startNumerate = 1, string[] separators = null)
 	{
 		var separator = separators ?? new []{"\n"};
 		var lineArray = lines.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-		return AsMarkdownList(lineArray);
+		return AsMarkdownList(lineArray, startNumerate);
 	}
 	
-	public static string AsMarkdownList(this IEnumerable<string> lines, Int32? startNumerate = 1)
+	public static string AsMarkdownList(this IEnumerable<string> lines, int? startNumerate = 1)
 	{
 		var listLines = startNumerate.HasValue
 			? lines.Select((s, i) => $" - [ ] {i+startNumerate.Value}. {s.Trim()}")
