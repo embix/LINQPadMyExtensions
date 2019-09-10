@@ -1,4 +1,4 @@
-/** LINQPad FileHeader - you may want to just copy the extensions you need, no override your extensions file whith this one
+/** LINQPad FileHeader - you may want to just copy the extensions you need, not override your extensions file whith this one
 <Query Kind="Program">
   <Namespace>System.IO.Compression</Namespace>
 </Query>
